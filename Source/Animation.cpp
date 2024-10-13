@@ -1,11 +1,12 @@
 #include <SFML/Graphics.hpp>
 
 #include "Headers/Animation.hpp"
+using namespace std;
 
-Animation::Animation(const unsigned short i_frame_width, const std::string& i_texture_location, const unsigned short i_animation_speed) :
+Animation::Animation(const unsigned short i_frame_width, const string& i_texture_location, const unsigned short i_animation_speed) :
 	flipped(0),
 	animation_iterator(0),
-	animation_speed(std::max<unsigned short>(1, i_animation_speed)),
+	animation_speed(max<unsigned short>(1, i_animation_speed)),
 	current_frame(0),
 	frame_width(i_frame_width){
 	texture.loadFromFile(i_texture_location);
@@ -26,7 +27,7 @@ void Animation::draw(sf::RenderWindow& i_window){
 }
 
 void Animation::set_animation_speed(const unsigned short i_animation_speed){
-	animation_speed = std::max<unsigned short>(1, i_animation_speed);
+	animation_speed = max<unsigned short>(1, i_animation_speed);
 }
 
 void Animation::set_flipped(const bool i_value){
@@ -37,7 +38,7 @@ void Animation::set_position(const short i_x, const short i_y){
 	sprite.setPosition(i_x, i_y);
 }
 
-void Animation::set_texture_location(const std::string& i_texture_location){
+void Animation::set_texture_location(const string& i_texture_location){
 	texture.loadFromFile(i_texture_location);
 }
 
